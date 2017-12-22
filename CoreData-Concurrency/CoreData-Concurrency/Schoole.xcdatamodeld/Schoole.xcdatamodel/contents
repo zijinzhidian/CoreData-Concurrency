@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="MyClass" representedClassName="MyClass" syncable="YES" codeGenerationType="class">
+        <attribute name="classroomID" optional="YES" attributeType="String" defaultValueString="三年级一班" syncable="YES"/>
+        <relationship name="includeStudents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Students" inverseName="belongToClass" inverseEntity="Students" syncable="YES"/>
+    </entity>
+    <entity name="Students" representedClassName="Students" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" minValueString="1" maxValueString="100" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="belongToClass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MyClass" inverseName="includeStudents" inverseEntity="MyClass" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Students" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="MyClass" positionX="-54" positionY="-9" width="128" height="75"/>
+    </elements>
+</model>
