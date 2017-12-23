@@ -104,7 +104,7 @@
 //
 //    NSLog(@"这里检测是否会阻塞主线程");
 //
-    [self select:nil];
+//    [self select:nil];
 /*----让更新的操作沉睡三秒-----*/
     //没有阻塞主线程,但是阻塞了查询操作
     //阻塞查询操作的原因--->performBlock:该方法只会新开一个新线程,即使调用多次performBlock。也就是所有调用了performBlock方法的函数,都会在同一个新开的线程里面同步执行。
@@ -222,7 +222,7 @@
 
 
 /**
- 查询班级
+ 查询班级下的所有学生
 
  */
 - (IBAction)selectClass:(id)sender {
@@ -248,6 +248,81 @@
     
 }
 
+
+/**
+ 批量更新(iOS8.0+)
+
+ */
+- (IBAction)batchUpdate:(id)sender {
+    
+    //创建批量更新请求
+    NSBatchUpdateRequest *batchUpdateRequest = [[NSBatchUpdateRequest alloc] initWithEntityName:@"Students"];
+    //条件(学号大于10)
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"number > 10"];
+    batchUpdateRequest.predicate = predicate;
+    //更改字段(字典的key为需要更新的字段名,value为更新的新值)
+    batchUpdateRequest.propertiesToUpdate = @{@"age":@20};
+    //指定的返回类型
+    //NSStatusOnlyResultType:返回BOOL类型,表示更新是否执行成功
+    //NSUpdatedObjectIDsResultType:返回更新成功的对象的ID,NSArray类型
+    //NSUpdatedObjectsCountResultType:
+    batchUpdateRequest.resultType = NSUpdatedObjectIDsResultType;
+    //更新
+    NSError *error = nil;
+    NSBatchUpdateResult *result = [self.privateContext executeRequest:batchUpdateRequest error:&error];
+    if (!error) {
+        NSLog(@"%@",result);
+    } else {
+        NSLog(@"批量更新失败:%@",error);
+    }
+    //更新MOC中的托管对象，使MOC和本地持久化区数据同步,否则context不知道数据库的变化,查询到的还是旧数据(两种方法)
+//    [self.privateContext refreshAllObjects];
+    
+//    获取更新的对象ID
+    NSArray *updateObjectIDs = result.result;
+    //设置字典
+    NSDictionary *updateDic = @{NSUpdatedObjectsKey:updateObjectIDs};
+    //通知context更新
+    [NSManagedObjectContext mergeChangesFromRemoteContextSave:updateDic intoContexts:@[self.privateContext,self.mainContext]];
+    
+}
+
+
+/**
+ 批量删除(iOS9.0+)
+
+ */
+- (IBAction)batchDelete:(id)sender {
+    
+    NSFetchRequest *deleteRequest = [[NSFetchRequest alloc] initWithEntityName:@"Students"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age > 20"];
+    deleteRequest.predicate = predicate;
+    
+    //批量删除请求
+    NSBatchDeleteRequest *batchDeleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:deleteRequest];
+    
+    batchDeleteRequest.resultType = NSUpdatedObjectIDsResultType;
+    NSError *error = nil;
+    NSBatchDeleteResult *result = [self.privateContext executeRequest:batchDeleteRequest error:&error];
+    if (!error) {
+        NSLog(@"%@",result);
+    } else {
+        NSLog(@"批量删除失败:%@",error);
+    }
+    
+    //更新MOC中的托管对象，使MOC和本地持久化区数据同步(两种方法)
+    //    [self.privateContext refreshAllObjects];
+    
+    //获取删除的对象的ID
+    NSArray *deletedObjectIDs = result.result;
+    //设置字典
+    NSDictionary *deletedDic = @{NSDeletedObjectsKey:deletedObjectIDs};
+    //通知context删除
+    [NSManagedObjectContext mergeChangesFromRemoteContextSave:deletedDic intoContexts:@[self.privateContext,self.mainContext]];
+    
+}
+
+#pragma mark - Notification Action
 - (void)merger:(NSNotification *)notification {
     
     id object = notification.object;

@@ -69,7 +69,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4j7-EC-3Rp">
-                                <rect key="frame" x="194" y="424" width="133" height="30"/>
+                                <rect key="frame" x="194" y="388" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.31897017359733582" green="0.92608994245529175" blue="0.20540270209312439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="查询"/>
@@ -78,7 +78,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="et2-XM-F42">
-                                <rect key="frame" x="48" y="424" width="133" height="30"/>
+                                <rect key="frame" x="48" y="388" width="133" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.31897017359733582" green="0.92608994245529175" blue="0.20540270209312439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="修改(输入学号)"/>
@@ -87,12 +87,30 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8z1-al-Ve3">
-                                <rect key="frame" x="48" y="504" width="279" height="30"/>
+                                <rect key="frame" x="48" y="448" width="279" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.31897017359733582" green="0.92608994245529175" blue="0.20540270209312439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="查询班级的所有学生"/>
                                 <connections>
                                     <action selector="selectClass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J7M-9d-1MV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azA-0R-JRF">
+                                <rect key="frame" x="48" y="524" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.31897017359733582" green="0.92608994245529175" blue="0.20540270209312439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="批量更新"/>
+                                <connections>
+                                    <action selector="batchUpdate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HtE-zu-USq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4G-iK-WH0">
+                                <rect key="frame" x="194" y="524" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.31897017359733582" green="0.92608994245529175" blue="0.20540270209312439" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="批量删除"/>
+                                <connections>
+                                    <action selector="batchDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pjU-hs-Rmw"/>
                                 </connections>
                             </button>
                         </subviews>
