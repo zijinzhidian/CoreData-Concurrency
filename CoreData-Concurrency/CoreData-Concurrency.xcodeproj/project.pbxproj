@@ -56,6 +56,7 @@
 		1828092B1FEBF2900077F70F /* YWCoreDadaManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YWCoreDadaManager.h; sourceTree = "<group>"; };
 		1828092C1FEBF2900077F70F /* YWCoreDadaManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YWCoreDadaManager.m; sourceTree = "<group>"; };
 		186E8D3E1FEC9E2100729588 /* Schoole.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Schoole.xcdatamodel; sourceTree = "<group>"; };
+		18D802EF1FEDEF2900501062 /* Schoole 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Schoole 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,9 +564,10 @@
 		186E8D3D1FEC9E2100729588 /* Schoole.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				18D802EF1FEDEF2900501062 /* Schoole 2.xcdatamodel */,
 				186E8D3E1FEC9E2100729588 /* Schoole.xcdatamodel */,
 			);
-			currentVersion = 186E8D3E1FEC9E2100729588 /* Schoole.xcdatamodel */;
+			currentVersion = 18D802EF1FEDEF2900501062 /* Schoole 2.xcdatamodel */;
 			path = Schoole.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

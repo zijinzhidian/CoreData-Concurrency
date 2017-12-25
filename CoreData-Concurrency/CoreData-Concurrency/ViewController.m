@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"%@",NSHomeDirectory());
+    
 }
 
 #pragma mark - Private Actions
